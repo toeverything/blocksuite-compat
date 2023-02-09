@@ -4,7 +4,7 @@
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "yjs": "13.5.43",
+    "yjs": "=13.5.45",
     "@blocksuite/store": "=0.3.0",
     "@blocksuite/blocks": "=0.3.0"
   }

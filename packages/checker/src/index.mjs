@@ -2,6 +2,7 @@ import path from 'node:path'
 import fs from 'node:fs/promises'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
+import { inspect } from 'node:util'
 import { Workspace, Generator } from '@blocksuite/store'
 import { builtInSchemas } from '@blocksuite/blocks/models'
 
@@ -37,13 +38,13 @@ async function main () {
       isSSR: true
     }).register(builtInSchemas)
     const json = await new Promise(resolve => {
-      newWorkspace.signals.pageAdded.once((pageId) => {
+      newWorkspace.signals.pageAdded.once(() => {
         resolve(newWorkspace.doc.toJSON())
       })
       Workspace.Y.applyUpdate(newWorkspace.doc, update)
     })
 
-    console.log('merge result', json)
+    console.log('merge result', inspect(json))
   }
 }
 
