@@ -1,0 +1,11 @@
+{
+  "name": "@blocksuite/data-source-0.3.0",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "yjs": "13.5.43",
+    "@blocksuite/store": "=0.3.0",
+    "@blocksuite/blocks": "=0.3.0"
+  }
+}

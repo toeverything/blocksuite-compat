@@ -1,0 +1,32 @@
+name: Stability Check
+
+on:
+  schedule:
+    # At the end of every day
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  stability-check:
+    name: Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.9.5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        run: pnpm install
+      - name: Run Stability Check
+        run: pnpm run start
+        working-directory: packages/checker
