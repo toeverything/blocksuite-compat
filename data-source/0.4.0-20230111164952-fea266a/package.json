@@ -1,0 +1,11 @@
+{
+  "name": "@blocksuite/data-source-0.4.0-20230111164952-fea266a",
+  "type": "module",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "yjs": "=13.5.45",
+    "@blocksuite/store": "=0.4.0-20230111164952-fea266a",
+    "@blocksuite/blocks": "=0.4.0-20230111164952-fea266a"
+  }
+}
