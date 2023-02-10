@@ -10,22 +10,23 @@ const env =
   typeof globalThis !== 'undefined'
     ? globalThis
     : typeof window !== 'undefined'
-      ? window
-      : typeof global !== 'undefined'
-        ? global
-        : {}
+    ? window
+    : typeof global !== 'undefined'
+    ? global
+    : {}
 delete env['__ $BLOCKSUITE_STORE$ __']
 delete env['__ $BLOCKSUITE_BLOCKS$ __']
 
 const dataSources = fileURLToPath(
-  new URL('../../../data-source', import.meta.url))
+  new URL('../../../data-source', import.meta.url)
+)
 
-async function main () {
+async function main() {
   const dirs = await fs.readdir(dataSources)
   for (const dir of dirs) {
     const { generator, encodeAsUpdate } = await import(
       path.resolve(dataSources, dir, 'src', 'index.mjs')
-      )
+    )
     // remove side effect
     delete env['__ $BLOCKSUITE_STORE$ __']
     delete env['__ $BLOCKSUITE_BLOCKS$ __']
@@ -35,7 +36,7 @@ async function main () {
       room: 'checker',
       providers: [],
       idGenerator: Generator.NanoID,
-      isSSR: true
+      isSSR: true,
     }).register(builtInSchemas)
     const json = await new Promise(resolve => {
       newWorkspace.signals.pageAdded.once(() => {
