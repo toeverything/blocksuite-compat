@@ -1,4 +1,4 @@
-name: Stability Check
+name: Compat Check
 
 on:
   schedule:
@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  stability-check:
+  compat-check:
     name: Check
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +27,6 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install
-      - name: Run Stability Check
+      - name: Run Compat Check
         run: pnpm run start
         working-directory: packages/checker

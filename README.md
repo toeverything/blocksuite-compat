@@ -1,3 +1,3 @@
-# BlockSuite Stability
+# BlockSuite Compat
 
-> Testing BlockSuite data for backward and forward compatibility
+Testing BlockSuite data format for backward and forward compatibility.
