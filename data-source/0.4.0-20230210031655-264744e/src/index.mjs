@@ -1,5 +1,5 @@
 import { Workspace, Generator } from '@blocksuite/store'
-import { builtInSchemas } from '@blocksuite/blocks/models'
+import { builtInSchemas, __unstableSchemas } from '@blocksuite/blocks/models'
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -13,7 +13,7 @@ export async function generator () {
     const workspace = new Workspace({
       room: Generator.UUIDv4, idGenerator: 'uuidV4', providers: [], isSSR: true
     })
-    workspace.register(builtInSchemas)
+    workspace.register(builtInSchemas).register(__unstableSchemas);
     Workspace.Y.applyUpdate(workspace.doc, await fs.readFile(path.resolve(
       fileURLToPath(new URL('./fixtures/basic.ydoc', import.meta.url))))
     )
