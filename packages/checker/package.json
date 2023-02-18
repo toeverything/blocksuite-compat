@@ -6,7 +6,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/index.mjs",
-    "run:broken": "node src/broken.mjs broken"
+    "run:broken": "node src/broken.mjs"
   },
   "keywords": [],
   "author": "",
