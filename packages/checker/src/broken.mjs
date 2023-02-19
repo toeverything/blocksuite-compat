@@ -14,8 +14,8 @@ const ws2 = new Workspace({
 })
 ws2.register(builtInSchemas).register(__unstableSchemas)
 
-fs.readFile('../../../data-source/broken/broken01.ydoc').then(async (data) => {
-  const data2 = await fs.readFile('../../../data-source/broken/broken02.ydoc')
+fs.readFile('../../data-source/broken/broken01.ydoc').then(async (data) => {
+  const data2 = await fs.readFile('../../data-source/broken/broken02.ydoc')
   Workspace.Y.applyUpdate(ws.doc, data2)
   Workspace.Y.applyUpdate(ws2.doc, data)
   // console.log(ws.doc.toJSON())
