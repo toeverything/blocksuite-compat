@@ -4,7 +4,7 @@ import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { inspect } from 'node:util'
 import { Workspace, Generator } from '@blocksuite/store'
-import { builtInSchemas } from '@blocksuite/blocks/models'
+import { AffineSchemas, __unstableSchemas } from '@blocksuite/blocks/models'
 
 const env =
   typeof globalThis !== 'undefined'
@@ -37,9 +37,10 @@ async function main() {
       providers: [],
       idGenerator: Generator.NanoID,
       isSSR: true,
-    }).register(builtInSchemas)
+    }).register(AffineSchemas)
+      .register(__unstableSchemas)
     const json = await new Promise(resolve => {
-      newWorkspace.signals.pageAdded.once(() => {
+      newWorkspace.slots.pageAdded.once(() => {
         resolve(newWorkspace.doc.toJSON())
       })
       Workspace.Y.applyUpdate(newWorkspace.doc, update)

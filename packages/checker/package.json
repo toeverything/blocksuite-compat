@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@blocksuite/blocks": "=0.4.0-20230209215259-a294751",
-    "@blocksuite/store": "=0.4.0-20230209215259-a294751",
-    "yjs": "=13.5.45"
+    "@blocksuite/blocks": "^0.0.0-20230509150141-055b5702-nightly",
+    "@blocksuite/store": "^0.0.0-20230509150141-055b5702-nightly",
+    "yjs": "^13.6.1"
   }
 }
